@@ -1,0 +1,21 @@
+{%extends 'champion/baseChampion.html.twig'%}
+ {% block contenido %} 
+ 
+ <h2 class="my-5 text-center">Regiones
+	</h2>
+	{%for message in app.flashes('success') %}
+		<p>{{message}}</p>
+		{%endfor%}
+		<div class="ms-3 d-flex justify-content-between flex-wrap">
+			{% for location in locations %}
+				<div class="col mb-4">
+					<div class="card" style="width: 18rem;">
+						<img src="{{location.image}}" class="card-img-top">
+						<div class="card-body">
+							<h5 class="card-title">{{location.name}}</h5>
+						</div>
+					</div>
+				</div>
+            {% endfor %}
+    </div>
+{% endblock %}

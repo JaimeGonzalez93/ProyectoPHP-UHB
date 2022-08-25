@@ -1,0 +1,25 @@
+ {%extends 'champion/baseChampion.html.twig'%}
+ {% block contenido %} 
+ 
+ <h2 class="my-5 text-center">Listado de Campeones
+	</h2>
+	{%for message in app.flashes('success') %}
+		<p>{{message}}</p>
+		{%endfor%}
+		<div class="ms-3 d-flex justify-content-between flex-wrap">
+			{% for champion in champions %}
+				<div class="col mb-4">
+					<div class="card" style="width: 18rem;">
+						<img src="{{champion.image}}" class="card-img-top">
+						<div class="card-body">
+							<h5 class="card-title">{{champion.name}}</h5>
+							<p class="card-text">{{champion.lore}}</p>
+							 <a href="{{path("showchampion",{"id":champion.id})}}" class="btn btn-primary">Más Info</a> 
+							{% if is_granted("ROLE_ADMIN")%} <a href="{{path("editchampion",{"id":champion.id})}}" class="btn btn-primary">Editar</a>
+							<a href="{{path("removechampion",{"id":champion.id})}}" class="btn btn-danger">Borrar</a>{% endif %}
+						</div>
+					</div>
+				</div>
+            {% endfor %}
+    </div>
+{% endblock %}

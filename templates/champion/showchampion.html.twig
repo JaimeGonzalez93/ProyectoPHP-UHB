@@ -1,0 +1,42 @@
+ {%extends 'champion/baseChampion.html.twig'%}
+ {% block contenido %} 
+ 
+ <div class="container">
+    <div class="row">
+        <div class="col text-center"><h2>{{champion.name}} </h2></div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <img src="{{champion.image}}">
+            <div style="margin-top: 8rem"> 
+            <p><b>{{champion.Location.name}}</b></p>
+            <img src="{{champion.Location.image}}">
+            </div>
+            </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">{{champion.lore}}</div>
+                </div>  
+                <div class="row" style="margin: 2rem">
+                    <ul>
+                        <li style="margin-top: 2rem">
+                            <img src="{{champion.passiveImg}}" style="widt: 1rem">{{champion.passive}}
+                        </li>
+                        <li style="margin-top: 2rem">
+                            <img src="{{champion.qHability}}" style="widt: 2rem">{{champion.qDescription}}
+                        </li>
+                        <li style="margin-top: 2rem">
+                            <img src="{{champion.wHability}}" style="widt: 2rem">{{champion.wDescription}}
+                        </li>
+                        <li style="margin-top: 2rem">
+                            <img src="{{champion.eHability}}" style="widt: 2rem">{{champion.eDescription}}
+                        </li>
+                        <li style="margin-top: 2rem">
+                            <img src="{{champion.rHability}}" style="widt: 2rem">{{champion.rDescription}}
+                        </li>
+                    </ul>
+                </div>
+        </div>  
+</div>
+
+{% endblock %}
